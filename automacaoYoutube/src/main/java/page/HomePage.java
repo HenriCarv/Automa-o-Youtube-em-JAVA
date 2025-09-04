@@ -13,14 +13,17 @@ public class HomePage extends Util {
         PageFactory.initElements(getDriver(), this);
     }
 
-    @FindBy(xpath = "//input[@id=\"search\"]")
+    @FindBy(xpath = "//input[@name=\"search_query\"]")
     private WebElement inputSerch;
 
-    @FindBy(xpath = "//button[@id=\"search-icon-legacy\"]")
+    @FindBy(xpath = "//button[@aria-label=\"Search\"]")
     private WebElement buttonSearch;
 
-    @FindBy(xpath = "(//div[@id=\"dismissible\"])[2]")
+    @FindBy(xpath = "(//img[@class=\"ytCoreImageHost ytCoreImageFillParentHeight ytCoreImageFillParentWidth ytCoreImageContentModeScaleAspectFill ytCoreImageLoaded\"])[1]")
     private WebElement videoSonia;
+
+    @FindBy(xpath = "//yt-formatted-string[@title=\"fala sonia\"]")
+    private WebElement titleName;
 
     public HomePage inserirPesquisa(String Search){
         inserirTextoElemento(inputSerch, Search);
@@ -28,8 +31,10 @@ public class HomePage extends Util {
         return this;
     }
 
-    public HomePage entreNoVideo(){
+    public HomePage entreNoVideo() {
         clicarElemento(videoSonia);
+        validateElementText(titleName, "fala sonia");
         return this;
     }
+
 }

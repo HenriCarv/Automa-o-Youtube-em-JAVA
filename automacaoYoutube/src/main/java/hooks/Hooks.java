@@ -1,7 +1,6 @@
 package hooks;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import io.cucumber.java.*;
 import util.Util;
 
 public class Hooks extends Util {
