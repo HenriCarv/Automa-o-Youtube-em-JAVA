@@ -15,7 +15,7 @@ public class HomeStep {
 
     @Dado("preenchar o campo com {string} e clicar em procurar")
     public void preenchar_o_campo_com_e_clicar_em_procurar(String Search) {
-        this.homePage.inserirPesquisa(Search);
+        this.homePage.inserirPesquisa(Search);;
     }
 
 
