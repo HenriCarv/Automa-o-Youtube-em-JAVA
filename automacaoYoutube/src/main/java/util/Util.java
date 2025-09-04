@@ -6,12 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
 import java.util.concurrent.TimeUnit;
 
 public class Util {
@@ -55,5 +53,16 @@ public class Util {
 
     protected boolean existeElementoNaPagina(String xpath){
         return getDriver().findElements(By.xpath(xpath)).size() != 0;
+    }
+
+    public static boolean validateElementText(WebElement element, String expectedText) {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(element));
+            String actualText = element.getText();
+            return actualText.equals(expectedText);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
