@@ -1,6 +1,8 @@
 package step;
 
-import cucumber.api.java.pt.*;
+
+import io.cucumber.java.es.Dado;
+import io.cucumber.java.pt.Entao;
 import page.HomePage;
 import io.cucumber.datatable.DataTable;
 import java.util.List;
